@@ -112,6 +112,20 @@ namespace Exercise3_029
             previous.next = current;
         }
 
+        public bool delNode(int rollNumber)
+        {
+            Node previous, current;
+            previous = current = null;
+            //check apakah node yang dimaksud ada didalam list atau tidak
+            if (Search(rollNumber, ref previous, ref current) == false)
+                return false;
+            previous.next = LAST.next;
+            if (current == LAST)
+
+                LAST = previous;
+            return true;
+        }
+
         static void Main(string[] args)
         {
             CircularList obj = new CircularList();
@@ -120,8 +134,8 @@ namespace Exercise3_029
                 try
                 {
                     Console.WriteLine("\nMenu");
-                    Console.WriteLine("1. Search for a record in the list");
-                    Console.WriteLine("2. Search for a record in the list");
+                    Console.WriteLine("1. Add a record to the list ");
+                    Console.WriteLine("2. Delete a record from the list ");
                     Console.WriteLine("3. View all the records in the list");
                     Console.WriteLine("4. Search for a record in the list");
                     Console.WriteLine("5. Display the first record in the list");
@@ -133,6 +147,22 @@ namespace Exercise3_029
                         case '1':
                             {
                                 obj.insertionNode();
+                            }
+                            break;
+                        case '2':
+                            {
+                                if (obj.listEmpty())
+                                {
+                                    Console.WriteLine("\nList Empty");
+                                    break;
+                                }
+                                Console.Write("\nEnter the roll number of the student whose delete: ");
+                                int nim = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine();
+                                if (obj.delNode(nim) == false)
+                                    Console.WriteLine("\nData not found");
+                                else
+                                    Console.WriteLine("Data rollnumber  " + nim + "Deleting");
                             }
                             break;
                         case '3':
