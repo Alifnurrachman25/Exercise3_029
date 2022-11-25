@@ -13,6 +13,16 @@ namespace Exercise3_029
         public string name;
         public Node next;
 
+    }
+    class CircularList 
+    {
+        Node LAST;
+
+        public CircularList()
+        {
+            LAST = null;
+        }
+
 
         static void Main(string[] args)
         {
