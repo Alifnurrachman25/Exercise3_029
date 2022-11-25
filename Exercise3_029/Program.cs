@@ -60,6 +60,13 @@ namespace Exercise3_029
                 Console.Write(LAST.rollNumber + "   " + LAST.name + "\n");
             }
         }
+        public void firstNode()
+        {
+            if (listEmpty())
+                Console.WriteLine("\nList is empty");
+            else
+                Console.WriteLine("\nThe first record in the list is : \n\n" + LAST.next.rollNumber + "   " + LAST.next.name);
+        }
 
             static void Main(string[] args)
         {
